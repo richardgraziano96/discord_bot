@@ -2,7 +2,9 @@ import discord
 from discord.ext import commands
 
 intents = discord.Intents(messages = True, guilds = True, reactions = True, members = True, presences = True)
-client = commands.Bot(command_prefix = '*', intents = intents)
+client = commands.Bot(command_prefix = '!!', intents = intents)
+with open('token.txt') as f:
+    TOKEN = f.readline()
 
 @client.event
 # When it's ready
@@ -17,4 +19,4 @@ async def on_member_join(member):
 async def on_member_remove(member):
     print(f'{member} has left the server.')
 
-client.run('ODQxMDc2ODAzMDQ4MzA4NzQ3.YJhf0A.t_6K8DodVK46_Zn4WQ6XeG9Mqi8')
+client.run(TOKEN)
