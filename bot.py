@@ -49,7 +49,7 @@ async def kick(ctx, members : discord.Member, *, reason = None):
 async def ban(ctx, members : commands.Greedy[discord.Member],
                    delete_days : typing.Optional[int] = 0, *,
                    reason : str):
-    """Mass bans members with an optional delete_days parameter"""
+    """Mass bans members with an optional delete_days parameter."""
     for member in members:
         await member.ban(delete_message_days=delete_days, reason=reason)
         await ctx.send(f'Banned {member.mention}')
@@ -59,7 +59,7 @@ async def ban(ctx, members : commands.Greedy[discord.Member],
 async def unban(ctx, *, members):
     banned_users = await ctx.guild.bans()
     member_name, member_discriminator = members.split('#')
-    
+
     for ban_entry in banned_users:
         user = ban_entry.user
 
